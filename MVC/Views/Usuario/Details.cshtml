@@ -1,0 +1,44 @@
+﻿@model MVC.Models.UsuarioModel
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Detalhes do Usuário</title>
+    <!-- Importando o Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Detalhes do @Model.Nome</h1>
+       
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.UrlImagem" class="card-img-top small" alt="Imagem do usuário">
+            <div class="card-body">
+                <h5 class="card-title">ID: @Model.Id</h5>
+
+                <p class="card-text mt-3">@Model.Nome</p>
+                <p class="card-text">@Model.Email</p>
+                
+                @if (Model.IsFornecedor)
+                {
+                    <!-- Se for fornecedor, exibe "Sim" -->
+                    <p class="card-text">É fornecedor</p>
+                }
+                else
+                {
+                    <!-- Se não for fornecedor, exibe "Não" -->
+                    <p class="card-text">Não é fornecedor</p>
+
+                }
+
+                <!-- Botão para retornar para a página de lista de usuários -->
+                <a asp-action="Index" class="btn btn-secondary mt-5">Voltar para a Lista</a>
+            </div>
+        </div>
+       
+      
+    </div>
+</body>
+</html>
